@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSentry | Community Digital Shield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- LIQUID GLASS UI CONFIG --- */
+        :root {
+            --primary-bg: #060b14;    
+            --text-light: #f4f6f9;
+            --text-muted: #8fa0dd;
+            --accent: #64ffda;        
+            --accent-glow: rgba(100, 255, 218, 0.15);
+            --accent-purple: #7928ca; 
+            --accent-blue: #00b8d8;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: var(--primary-bg); 
+            color: var(--text-light); 
+            font-family: 'Lato', sans-serif; 
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Liquid Orbs */
+        body::before, body::after {
+            content: ''; position: absolute; border-radius: 50%; filter: blur(140px); z-index: -1; opacity: 0.3; pointer-events: none;
+        }
+        body::before { top: -10%; right: -5%; width: 600px; height: 600px; background: linear-gradient(45deg, var(--accent-blue), var(--accent)); }
+        body::after { top: 50%; left: -10%; width: 500px; height: 500px; background: linear-gradient(45deg, var(--accent-purple), #ff007f); }
+
+        /* --- STICKY NAVIGATION --- */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(6, 11, 20, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: 0.4s;
+        }
+        .nav-container {
+            max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between;
+            align-items: center; padding: 20px 30px;
+        }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; }
+        .logo span { color: var(--accent); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { color: rgba(255, 255, 255, 0.8); text-decoration: none; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
+
+        /* --- HERO --- */
+        .hero { padding: 240px 30px 140px; text-align: left; max-width: 1300px; margin: 0 auto; }
+        .hero h1 { font-family: 'Poppins', sans-serif; font-size: 4.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+        .hero h1 span { background: linear-gradient(120deg, var(--accent), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.4rem; color: var(--text-muted); max-width: 800px; margin-bottom: 45px; }
+
+        .btn-group { display: flex; gap: 20px; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px;
+            border-radius: 14px; font-size: 1.05rem; font-weight: 700; text-decoration: none; transition: 0.4s; border: none; cursor: pointer;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #00b4d8 100%); color: #060b14; box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(100, 255, 218, 0.4); }
+        .btn-secondary { border: 1px solid var(--glass-border); color: #fff; background: rgba(255,255,255,0.02); }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+
+        /* --- STRATEGY CARDS WITH GLASS GLOW --- */
+        section { padding: 100px 30px; max-width: 1300px; margin: 0 auto; }
+        .section-title { font-family: 'Poppins', sans-serif; font-size: 3rem; margin-bottom: 50px; }
+        .section-title span { color: var(--accent); }
+
+        .grid-layout { display: flex; gap: 30px; margin-bottom: 50px; }
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); padding: 45px; border-radius: 28px;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); flex: 1; position: relative; overflow: hidden;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); border-color: rgba(100, 255, 218, 0.25);
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5), inset 0 0 25px var(--accent-glow);
+        }
+        .glass-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .glass-card p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+
+        /* --- PORTAL FRAMEWORKS --- */
+        .portal {
+            background: var(--glass-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 32px;
+            padding: 40px; position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+        .portal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .portal-header h3 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: #fff; }
+        .slide-counter { color: var(--accent); font-weight: 700; font-size: 1.2rem; background: rgba(100, 255, 218, 0.05); padding: 6px 16px; border-radius: 10px; border: 1px solid rgba(100, 255, 218, 0.1); }
+
+        /* Slide Viewport Frame */
+        .slide-viewport {
+            height: 560px; background: rgba(0,0,0,0.3); border-radius: 20px;
+            position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .slide {
+            position: absolute; width: 100%; height: 100%; padding: 50px;
+            display: none; animation: slideFade 0.4s ease;
+        }
+        .slide.active { display: flex; flex-direction: column; justify-content: center; }
+        @keyframes slideFade { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Educational Slide Details */
+        .slide h2 { font-family: 'Poppins', sans-serif; font-size: 2.8rem; color: #fff; margin-bottom: 20px; }
+        .slide .sub { font-size: 1.4rem; color: var(--accent); margin-bottom: 25px; }
+        .slide p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; }
+        
+        .slide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        .slide-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 16px; padding: 25px; }
+        .slide-box.bad { border-left: 5px solid #ff4757; background: rgba(255, 71, 87, 0.01); }
+        .slide-box.good { border-left: 5px solid var(--accent); background: rgba(100, 255, 218, 0.01); }
+        .slide-box h4 { margin-bottom: 10px; color: #fff; font-size: 1.25rem; }
+
+        .slide ul { list-style: none; margin-top: 15px; }
+        .slide li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 1.15rem; color: var(--text-muted); }
+        .slide li i { color: var(--accent); font-size: 0.95rem; }
+        
+        .tip { background: rgba(100, 255, 218, 0.05); padding: 18px; border-radius: 12px; margin-top: 25px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(100, 255, 218, 0.1); }
+
+        /* Controls Block */
+        .controls { display: flex; justify-content: space-between; margin-top: 30px; }
+        .nav-btn {
+            background: var(--accent); color: #060b14; border: none; padding: 14px 28px;
+            border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif;
+        }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(100,255,218,0.3); }
+
+        /* --- FOOTER --- */
+        footer { padding: 120px 30px 80px; text-align: center; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.5); }
+        .footer-email { font-size: 2rem; color: var(--accent); text-decoration: none; font-weight: 800; transition: 0.3s; display: inline-block; margin-top: 20px; }
+        .footer-email:hover { text-shadow: 0 0 25px rgba(100, 255, 218, 0.5); text-decoration: underline; transform: translateY(-2px); }
+
+        /* Mouse Tracking Highlight Style */
+        .glass-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.04), transparent 40%);
+            z-index: 1; pointer-events: none;
+        }
+
+        @media (max-width: 992px) {
+            .grid-layout { flex-direction: column; }
+            .slide-viewport { height: auto; min-height: 520px; }
+            .slide-grid { grid-template-columns: 1fr; }
+            .footer-email { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <div class="logo">Cyber<span>Sentry.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#seniors">Senior Portal</a></li>
+                    <li><a href="#youth">Youth Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero" id="home">
+        <h1>Protecting Our <span>Neighbors.</span></h1>
+        <p>A friendly guide for seniors and students to stay safe online. Simple, educational lessons that protect your information and your family.</p>
+        <div class="btn-group">
+            <a href="#seniors" class="btn btn-primary">Open Senior Module</a>
+            <a href="#youth" class="btn btn-secondary">Open Kids Module</a>
+        </div>
+    </div>
+
+    <section id="overview">
+        <h2 class="section-title">Deployment <span>Focus</span></h2>
+        <div class="grid-layout">
+            <div class="glass-card">
+                <h3>Senior Citizens</h3>
+                <p>Deploying direct educational courses across community hubs. Focusing on accessible analogies to break down core online parameters cleanly.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Youth Modules</h3>
+                <p>Constructing profile blueprints tailored for students. Breaking down third-party application platforms and game engine criteria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="seniors">
+        <h2 class="section-title">Senior <span>Safety Deck</span></h2>
+        <div class="portal">
+            <div class="portal-header">
+                <h3>Stay Safe Online: Friendly Guide</h3>
+                <span class="slide-counter" id="senior-count">1 / 5</span>
+            </div>
+            
+            <div class="slide-viewport">
+                <div class="slide senior-slide active">
+                    <h2>Stay Safe Online</h2>
+                    <p class="sub">A Friendly Guide to Protecting Yourself</p>
+                    <p>Welcome! We are going to learn about the four main things that keep you safe: Passwords, Phishing, Malware, and Keyloggers.</p>
+                </div>
+                <div class="slide senior-slide">
+                    <h2>🔒 Passwords: Your Front Door Lock</h2>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>❌ Weak Password</h4>
+                            <p>Short, one word, or a name.<br>Example: <strong>fluffy1</strong></p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>✅ Strong Passphrase</h4>
+                            <p>3-4 random words combined.<br>Example: <strong>BlueSkyHappyFish</strong></p>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i>
+                        <p><strong>Quick Tip:</strong> Use a different passphrase for your bank than you use for your everyday email.</p>
+                    </div>
+                </div>
+                <div class="slide senior-slide">
+                    <h2>🎣 Phishing: Fake Bait</h2>
+                    <div class="slide-box bad" style="margin-bottom: 20px;">
+                        <h4>⚠️ Scam Example Email:</h4>
+                        <p style="font-size: 1rem; margin-bottom: 5px;"><strong>From:</strong> alerts@secure-bank-verify.com</p>
+                        <p style="color: #ff4757; font-weight: 700;">"Your account is SUSPENDED! Click HERE now!"</p>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Creates Panic:</strong> "Act NOW or lose everything!"</li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Strange Sender:</strong> Not from your real bank's true address.</li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Asks for Clicks:</strong> Real banks don't email you links to sign in.</li>
+                    </ul>
+                </div>
+                <div class="slide senior-slide">
+                    <h2>🦠 Malware: Bad Software</h2>
+                    <p>Malware = "Malicious Software". Programs designed to spy or steal.</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>How it gets in:</h4>
+                            <p>• Suspicious email links<br>• "Free" unknown programs</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>How to stay safe:</h4>
+                            <p>• Keep computer updated<br>• Use antivirus software</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide senior-slide">
+                    <h2>⌨️ Keyloggers: The Tape Recorder</h2>
+                    <p>Imagine a tiny tape recorder hidden inside your keyboard—recording every single letter you type.</p>
+                    <div class="slide-box bad">
+                        <h4>It records:</h4>
+                        <p>Every password, every message, and your bank logins.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+                        <p><strong>Stay Safe:</strong> Never use public computers for banking. Always log out when you're finished.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="nav-btn" onclick="moveSlide('senior', -1)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                <button class="nav-btn" onclick="moveSlide('senior', 1)">Next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="youth">
+        <h2 class="section-title">Kids <span>Safety Deck</span></h2>
+        <div class="portal">
+            <div class="portal-header">
+                <h3>Level Up: Your Online Defense</h3>
+                <span class="slide-counter" id="youth-count">1 / 5</span>
+            </div>
+            
+            <div class="slide-viewport">
+                <div class="slide youth-slide active">
+                    <h2>Level Up Your Safety</h2>
+                    <p class="sub">Essential Survival Guide for the Internet</p>
+                    <p>Whether you're on Roblox, Discord, or YouTube, staying safe is the only way to protect your account and your progress.</p>
+                </div>
+                <div class="slide youth-slide">
+                    <h2>🔐 Pro Password Strategy</h2>
+                    <p>Hackers use scripts that guess thousands of passwords a second. Don't make it easy.</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>❌ NO NO's</h4>
+                            <p>Using your pet's name, your birthday, or "12345".</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>✅ PRO TIP</h4>
+                            <p>Use random words: <strong>PizzaDragonSkate88</strong></p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--accent);"><strong>Sentry Rule:</strong> Never share your password with friends online, even if they promise you free items.</p>
+                </div>
+                <div class="slide youth-slide">
+                    <h2>🎣 The "Free Currency" Scam</h2>
+                    <div class="slide-box bad">
+                        <h4>⚠️ Watch Out For:</h4>
+                        <p>"Click here for 10,000 FREE ROBUX / V-BUCKS! Just log in to claim!"</p>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-xmark" style="color: #ff4757;"></i> <strong>The Trick:</strong> The link takes you to a fake login page to steal your account.</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--accent);"></i> <strong>The Truth:</strong> No one gives away money for free online. If it's too good to be true, it's a scam.</li>
+                    </ul>
+                </div>
+                <div class="slide youth-slide">
+                    <h2>🦠 The "Free Mod" Trap</h2>
+                    <p>Malware often hides inside "free hacks" or "game mods" found on YouTube or Discord.</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>The Risk:</h4>
+                            <p>Sketchy files can steal every password saved in your browser and use your computer to send spam.</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>Stay Safe:</h4>
+                            <p>Don't download files from strangers. Ask a parent before installing new software.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide youth-slide">
+                    <h2>⌨️ Keyboard Watchers</h2>
+                    <p>Keyloggers are a gamer's worst nightmare. They watch every key you press.</p>
+                    <div class="slide-box bad">
+                        <h4>Public PC Alert:</h4>
+                        <p>School or library computers can have hidden software. Never log into your main gaming or personal accounts on them.</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <h4 style="color: var(--accent);">Pause. Think. Ask.</h4>
+                        <p>You're now better protected than most adults!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="nav-btn" onclick="moveSlide('youth', -1)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                <button class="nav-btn" onclick="moveSlide('youth', 1)">Next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let's build a secure community.</h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">Click below to send an inquiry directly from your email app.</p>
+        
+        <a href="mailto:cybersentry.initiative@outlook.com?subject=CyberSentry%20Inquiry%20-%20Community%20Shield" target="_blank" rel="noopener noreferrer" class="footer-email">
+            <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> cybersentry.initiative@outlook.com
+        </a>
+        
+        <p style="margin-top: 60px; opacity: 0.4; font-size: 0.9rem;">&copy; 2026 CyberSentry | Student Digital Advocacy Matrix</p>
+    </footer>
+
+    <script>
+        const deckState = {
+            senior: { current: 0, total: 5, slides: 'senior-slide', counter: 'senior-count' },
+            youth: { current: 0, total: 5, slides: 'youth-slide', counter: 'youth-count' }
+        };
+
+        function moveSlide(deckKey, direction) {
+            const state = deckState[deckKey];
+            const slides = document.getElementsByClassName(state.slides);
+            const counter = document.getElementById(state.counter);
+
+            // Hide old active element
+            slides[state.current].classList.remove('active');
+
+            // Process calculation math
+            state.current += direction;
+            if (state.current >= state.total) state.current = 0;
+            if (state.current < 0) state.current = state.total - 1;
+
+            // Render new active slide
+            slides[state.current].classList.add('active');
+            counter.innerText = `${state.current + 1} / ${state.total}`;
+        }
+
+        // Sticky Navbar Padding Scroll Trigger
+        window.onscroll = function() {
+            const navbar = document.getElementById("navbar");
+            if (window.pageYOffset > 50) {
+                navbar.style.background = "rgba(6, 11, 20, 0.95)";
+            } else {
+                navbar.style.background = "rgba(6, 11, 20, 0.8)";
+            }
+        };
+
+        // Interactive Glass Card Hover Mouse Coordinates Listener
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
