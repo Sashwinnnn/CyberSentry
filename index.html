@@ -132,6 +132,58 @@
         
         .tip { background: rgba(100, 255, 218, 0.05); padding: 18px; border-radius: 12px; margin-top: 25px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(100, 255, 218, 0.1); }
 
+        /* QR Code Block Component */
+        .qr-card-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: rgba(100, 255, 218, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 20px;
+            padding: 24px 30px;
+            margin-top: 20px;
+        }
+        .qr-wrapper {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+        }
+        .qr-wrapper img {
+            width: 130px;
+            height: 130px;
+            display: block;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+        .qr-details h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .qr-details p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .qr-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
         /* Controls Block */
         .controls { display: flex; justify-content: space-between; margin-top: 30px; }
         .nav-btn {
@@ -157,6 +209,7 @@
             .grid-layout { flex-direction: column; }
             .slide-viewport { height: auto; min-height: 520px; }
             .slide-grid { grid-template-columns: 1fr; }
+            .qr-card-container { flex-direction: column; text-align: center; }
             .footer-email { font-size: 1.5rem; }
         }
     </style>
@@ -262,13 +315,16 @@
                 <div class="slide senior-slide">
                     <h2>⌨️ Keyloggers: The Tape Recorder</h2>
                     <p>Imagine a tiny tape recorder hidden inside your keyboard—recording every single letter you type.</p>
-                    <div class="slide-box bad">
-                        <h4>It records:</h4>
-                        <p>Every password, every message, and your bank logins.</p>
-                    </div>
-                    <div class="tip">
-                        <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
-                        <p><strong>Stay Safe:</strong> Never use public computers for banking. Always log out when you're finished.</p>
+                    
+                    <div class="qr-card-container">
+                        <div class="qr-wrapper">
+                            <img src="qr-code.png" alt="Feedback QR Code">
+                        </div>
+                        <div class="qr-details">
+                            <h3>Help Us Improve! 📝</h3>
+                            <p>Please scan this QR code to give us feedback on this presentation.</p>
+                            <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan with your Phone Camera</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -337,13 +393,16 @@
                 <div class="slide youth-slide">
                     <h2>⌨️ Keyboard Watchers</h2>
                     <p>Keyloggers are a gamer's worst nightmare. They watch every key you press.</p>
-                    <div class="slide-box bad">
-                        <h4>Public PC Alert:</h4>
-                        <p>School or library computers can have hidden software. Never log into your main gaming or personal accounts on them.</p>
-                    </div>
-                    <div style="text-align: center; margin-top: 30px;">
-                        <h4 style="color: var(--accent);">Pause. Think. Ask.</h4>
-                        <p>You're now better protected than most adults!</p>
+                    
+                    <div class="qr-card-container">
+                        <div class="qr-wrapper">
+                            <img src="qr-code.png" alt="Feedback QR Code">
+                        </div>
+                        <div class="qr-details">
+                            <h3>Rate This Lesson! ⚡</h3>
+                            <p>Please scan this QR code to give us feedback on this presentation.</p>
+                            <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan with your Phone Camera</span>
+                        </div>
                     </div>
                 </div>
             </div>
