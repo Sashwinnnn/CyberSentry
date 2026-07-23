@@ -132,21 +132,30 @@
         
         .tip { background: rgba(100, 255, 218, 0.05); padding: 18px; border-radius: 12px; margin-top: 25px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(100, 255, 218, 0.1); }
 
-        /* QR Code Block Component */
+        /* Dedicated QR Code Slide Styles */
+        .qr-slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            height: 100%;
+        }
         .qr-card-container {
             display: flex;
             align-items: center;
-            gap: 30px;
-            background: rgba(100, 255, 218, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 20px;
-            padding: 24px 30px;
-            margin-top: 20px;
+            gap: 35px;
+            background: rgba(100, 255, 218, 0.04);
+            border: 1px solid rgba(100, 255, 218, 0.25);
+            border-radius: 24px;
+            padding: 35px 45px;
+            margin-top: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
         .qr-wrapper {
             background: #ffffff;
-            padding: 10px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -154,34 +163,35 @@
             flex-shrink: 0;
         }
         .qr-wrapper img {
-            width: 130px;
-            height: 130px;
+            width: 160px;
+            height: 160px;
             display: block;
-            border-radius: 6px;
+            border-radius: 8px;
             object-fit: contain;
         }
+        .qr-details { text-align: left; }
         .qr-details h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #fff;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .qr-details p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 18px;
         }
         .qr-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(100, 255, 218, 0.1);
+            gap: 10px;
+            background: rgba(100, 255, 218, 0.12);
             color: var(--accent);
-            padding: 6px 14px;
+            padding: 10px 20px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 0.95rem;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            font-size: 1.05rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
         }
 
         /* Controls Block */
@@ -209,7 +219,8 @@
             .grid-layout { flex-direction: column; }
             .slide-viewport { height: auto; min-height: 520px; }
             .slide-grid { grid-template-columns: 1fr; }
-            .qr-card-container { flex-direction: column; text-align: center; }
+            .qr-card-container { flex-direction: column; text-align: center; padding: 25px; }
+            .qr-details { text-align: center; }
             .footer-email { font-size: 1.5rem; }
         }
     </style>
@@ -254,12 +265,13 @@
         </div>
     </section>
 
+    <!-- SENIOR SECTION -->
     <section id="seniors">
         <h2 class="section-title">Senior <span>Safety Deck</span></h2>
         <div class="portal">
             <div class="portal-header">
                 <h3>Stay Safe Online: Friendly Guide</h3>
-                <span class="slide-counter" id="senior-count">1 / 5</span>
+                <span class="slide-counter" id="senior-count">1 / 6</span>
             </div>
             
             <div class="slide-viewport">
@@ -316,19 +328,36 @@
                         </div>
                     </div>
                 </div>
-                <!-- SLIDE 5 (NEW LAST SLIDE) -->
+                <!-- SLIDE 5 -->
                 <div class="slide senior-slide">
                     <h2>⌨️ Keyloggers: The Tape Recorder</h2>
                     <p>Imagine a tiny tape recorder hidden inside your keyboard—recording every single letter you type.</p>
-                    
-                    <div class="qr-card-container">
-                        <div class="qr-wrapper">
-                            <img src="qr-code.png" alt="Feedback QR Code">
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>The Risk:</h4>
+                            <p>Secretly records passwords, credit card numbers, and private messages as you type them.</p>
                         </div>
-                        <div class="qr-details">
-                            <h3>Help Us Improve! 📝</h3>
-                            <p>Please scan this QR code to give us feedback on this presentation.</p>
-                            <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan this with your phone camera please</span>
+                        <div class="slide-box good">
+                            <h4>How to Prevent:</h4>
+                            <p>Never download unknown software, use two-factor authentication, and keep antivirus running.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE 6 (NEW DEDICATED QR SLIDE) -->
+                <div class="slide senior-slide">
+                    <div class="qr-slide-content">
+                        <h2>We Value Your Feedback! 📝</h2>
+                        <p class="sub">Help us make this presentation better for the community.</p>
+                        
+                        <div class="qr-card-container">
+                            <div class="qr-wrapper">
+                                <img src="qr-code.png" alt="Feedback QR Code">
+                            </div>
+                            <div class="qr-details">
+                                <h3>Scan to Give Feedback</h3>
+                                <p>Open your camera app and point it at the QR code to complete our short survey.</p>
+                                <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan this with your phone camera please</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -341,12 +370,13 @@
         </div>
     </section>
 
+    <!-- YOUTH SECTION -->
     <section id="youth">
         <h2 class="section-title">Kids <span>Safety Deck</span></h2>
         <div class="portal">
             <div class="portal-header">
                 <h3>Level Up: Your Online Defense</h3>
-                <span class="slide-counter" id="youth-count">1 / 5</span>
+                <span class="slide-counter" id="youth-count">1 / 6</span>
             </div>
             
             <div class="slide-viewport">
@@ -399,19 +429,36 @@
                         </div>
                     </div>
                 </div>
-                <!-- SLIDE 5 (NEW LAST SLIDE) -->
+                <!-- SLIDE 5 -->
                 <div class="slide youth-slide">
                     <h2>⌨️ Keyboard Watchers</h2>
                     <p>Keyloggers are a gamer's worst nightmare. They watch every key you press.</p>
-                    
-                    <div class="qr-card-container">
-                        <div class="qr-wrapper">
-                            <img src="qr-code.png" alt="Feedback QR Code">
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>The Danger:</h4>
+                            <p>Once installed, keyloggers log your game account credentials the exact moment you type them in.</p>
                         </div>
-                        <div class="qr-details">
-                            <h3>Rate This Lesson! ⚡</h3>
-                            <p>Please scan this QR code to give us feedback on this presentation.</p>
-                            <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan this with your phone camera please</span>
+                        <div class="slide-box good">
+                            <h4>Defense Tip:</h4>
+                            <p>Never run unknown `.exe` files from untrusted links or random Discord servers.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE 6 (NEW DEDICATED QR SLIDE) -->
+                <div class="slide youth-slide">
+                    <div class="qr-slide-content">
+                        <h2>Rate This Lesson! ⚡</h2>
+                        <p class="sub">Tell us what you think so we can make this course even better.</p>
+                        
+                        <div class="qr-card-container">
+                            <div class="qr-wrapper">
+                                <img src="qr-code.png" alt="Feedback QR Code">
+                            </div>
+                            <div class="qr-details">
+                                <h3>Scan to Complete Survey</h3>
+                                <p>Grab your smartphone, open the camera app, and scan the QR code to drop your review.</p>
+                                <span class="qr-badge"><i class="fa-solid fa-qrcode"></i> Scan this with your phone camera please</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -437,8 +484,8 @@
 
     <script>
         const deckState = {
-            senior: { current: 0, total: 5, slides: 'senior-slide', counter: 'senior-count' },
-            youth: { current: 0, total: 5, slides: 'youth-slide', counter: 'youth-count' }
+            senior: { current: 0, total: 6, slides: 'senior-slide', counter: 'senior-count' },
+            youth: { current: 0, total: 6, slides: 'youth-slide', counter: 'youth-count' }
         };
 
         function moveSlide(deckKey, direction) {
