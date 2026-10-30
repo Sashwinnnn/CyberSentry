@@ -223,6 +223,20 @@
             .qr-details { text-align: center; }
             .footer-email { font-size: 1.5rem; }
         }
+
+        @media (max-width: 640px) {
+            .nav-container { flex-wrap: wrap; gap: 10px; justify-content: center; padding: 12px 16px; }
+            nav ul { flex-wrap: wrap; gap: 12px; justify-content: center; padding: 0; }
+            nav ul li a { font-size: 14px; }
+            .hero { padding: 160px 16px 80px; }
+            .hero h1 { font-size: clamp(28px, 9vw, 44px); overflow-wrap: anywhere; }
+            .hero p { font-size: 1.1rem; }
+            section { padding: 60px 16px; }
+            .section-title { font-size: 2rem; }
+            .btn-group { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+            img, svg { max-width: 100%; height: auto; }
+            .footer-email { font-size: 1.1rem; word-break: break-all; }
+        }
     </style>
 </head>
 <body>
@@ -245,24 +259,46 @@
 
     <div class="hero" id="home">
         <h1>Protecting Our <span>Neighbors.</span></h1>
-        <p>A friendly guide for seniors and students to stay safe online. Simple, educational lessons that protect your information and your family.</p>
+        <p>Free online-safety presentations for schools and retirement homes. I&#39;m a local student who teaches seniors how to spot scams and kids how to protect their game accounts.</p>
+        <p style="font-size: 1.1rem; margin-top: -20px;">Book a free visit: <a href="mailto:cybersentry.initiative@outlook.com" style="color: var(--accent); text-decoration: none; font-weight: 700;">cybersentry.initiative@outlook.com</a></p>
         <div class="btn-group">
             <a href="#seniors" class="btn btn-primary">Open Senior Module</a>
             <a href="#youth" class="btn btn-secondary">Open Kids Module</a>
         </div>
     </div>
 
+    <section id="about">
+        <h2 class="section-title">About <span>CyberSentry</span></h2>
+        <div class="glass-card">
+            <p>Hi, I&#39;m Sashwin Santhosh, an 11th grader in Portland Community College&#39;s early-college program (through Westview High School), in the Beaverton/Portland area. I started CyberSentry because scams and account hacks hit people I know, and most online-safety advice is hard to follow. I give short, friendly talks that are free for schools and retirement homes.</p>
+        </div>
+    </section>
+
     <section id="overview">
         <h2 class="section-title">Deployment <span>Focus</span></h2>
         <div class="grid-layout">
             <div class="glass-card">
                 <h3>Senior Citizens</h3>
-                <p>Deploying direct educational courses across community hubs. Focusing on accessible analogies to break down core online parameters cleanly.</p>
+                <p>I teach seniors how to spot scam emails, fake calls, and risky links, in plain language with real examples.</p>
             </div>
             <div class="glass-card">
                 <h3>Youth Modules</h3>
-                <p>Constructing profile blueprints tailored for students. Breaking down third-party application platforms and game engine criteria.</p>
+                <p>I teach kids how to protect their game accounts, spot fake "free Robux" offers, and avoid risky downloads on Roblox, Discord, and YouTube.</p>
             </div>
+        </div>
+    </section>
+
+    <section id="visit">
+        <h2 class="section-title">What a <span>Visit</span> Looks Like</h2>
+        <div class="glass-card">
+            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 1.05rem;">
+                <li><strong style="color: var(--accent);">Length:</strong> 30 to 45 minutes</li>
+                <li><strong style="color: var(--accent);">Cost:</strong> Free</li>
+                <li><strong style="color: var(--accent);">Seniors cover:</strong> strong passphrases, spotting phishing emails, malware, keyloggers, and two-factor authentication</li>
+                <li><strong style="color: var(--accent);">Kids cover:</strong> password strategy, fake giveaway scams, "free mod" traps, and keyloggers</li>
+                <li><strong style="color: var(--accent);">What I need:</strong> a screen or projector. I bring the slides.</li>
+                <li><strong style="color: var(--accent);">At the end:</strong> a quick QR-code feedback survey</li>
+            </ul>
         </div>
     </section>
 
@@ -272,26 +308,27 @@
         <div class="portal">
             <div class="portal-header">
                 <h3>Stay Safe Online: Friendly Guide</h3>
-                <span class="slide-counter" id="senior-count">1 / 6</span>
+                <span class="slide-counter" id="senior-count">1 / 12</span>
             </div>
             
             <div class="slide-viewport">
                 <!-- SLIDE 1 -->
                 <div class="slide senior-slide active">
-                    <h2>Stay Safe Online</h2>
-                    <p class="sub">A Friendly Guide to Protecting Yourself</p>
-                    <p>Welcome! We are going to learn about the four main things that keep you safe: Passwords, Phishing, Malware, and Keyloggers.</p>
+                    <h2>A Quick Story &#128222;</h2>
+                    <p class="sub">Stay Safe Online: A Friendly Guide to Protecting Yourself</p>
+                    <p>Last year, a woman in a community just like ours got a call: "This is your bank. Your account is in danger." She did everything the voice on the phone told her to - and the caller was a criminal.</p>
+                    <p><strong>What would you have done?</strong> Today we learn how to spot these tricks, so they never work on you.</p>
                 </div>
                 <!-- SLIDE 2 -->
                 <div class="slide senior-slide">
-                    <h2>🔒 Passwords: Your Front Door Lock</h2>
+                    <h2>&#128274; Passwords: Your Front Door Lock</h2>
                     <div class="slide-grid">
                         <div class="slide-box bad">
-                            <h4>❌ Weak Password</h4>
+                            <h4>&#10060; Weak Password</h4>
                             <p>Short, one word, or a name.<br>Example: <strong>fluffy1</strong></p>
                         </div>
                         <div class="slide-box good">
-                            <h4>✅ Strong Passphrase</h4>
+                            <h4>&#9989; Strong Passphrase</h4>
                             <p>3-4 random words combined.<br>Example: <strong>BlueSkyHappyFish</strong></p>
                         </div>
                     </div>
@@ -302,9 +339,28 @@
                 </div>
                 <!-- SLIDE 3 -->
                 <div class="slide senior-slide">
-                    <h2>🎣 Phishing: Fake Bait</h2>
+                    <h2>&#128737;&#65039; Two-Factor Authentication: The Second Lock</h2>
+                    <p>Even a great password can get stolen. Two-factor authentication (2FA) adds a second lock: after your password, the site asks for a short code from <em>your</em> phone.</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>Without 2FA:</h4>
+                            <p>A stolen password = a stolen account. The criminal walks right in.</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>With 2FA:</h4>
+                            <p>A stolen password is useless. The criminal doesn't have your phone, so the code stops them.</p>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i>
+                        <p><strong>Quick Tip:</strong> Turn on 2FA for your bank and email first. A family member (or I) can help - it takes five minutes.</p>
+                    </div>
+                </div>
+                <!-- SLIDE 4 -->
+                <div class="slide senior-slide">
+                    <h2>&#127907; Phishing: Fake Bait</h2>
                     <div class="slide-box bad" style="margin-bottom: 20px;">
-                        <h4>⚠️ Scam Example Email:</h4>
+                        <h4>&#9888;&#65039; Scam Example Email:</h4>
                         <p style="font-size: 1rem; margin-bottom: 5px;"><strong>From:</strong> alerts@secure-bank-verify.com</p>
                         <p style="color: #ff4757; font-weight: 700;">"Your account is SUSPENDED! Click HERE now!"</p>
                     </div>
@@ -314,37 +370,97 @@
                         <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Asks for Clicks:</strong> Real banks don't email you links to sign in.</li>
                     </ul>
                 </div>
-                <!-- SLIDE 4 -->
+                <!-- SLIDE 5 -->
                 <div class="slide senior-slide">
-                    <h2>🦠 Malware: Bad Software</h2>
+                    <h2>&#128241; Phone &amp; "Tech Support" Scams</h2>
+                    <div class="slide-box bad" style="margin-bottom: 20px;">
+                        <h4>&#9888;&#65039; What it sounds like:</h4>
+                        <p style="color: #ff4757; font-weight: 700;">"This is Microsoft. Your computer has a virus. Give me access and I'll fix it for a small fee."</p>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Real companies don't call you</strong> about viruses or refunds out of the blue.</li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Never give remote access</strong> to your computer to someone who called you.</li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <strong>Gift cards = scam.</strong> No real business or agency takes payment in gift cards.</li>
+                    </ul>
+                </div>
+                <!-- SLIDE 6 -->
+                <div class="slide senior-slide">
+                    <h2>&#128117; The "Grandchild in Trouble" Scam</h2>
+                    <p>A caller pretends to be your grandchild: "Grandma, I'm in trouble - I need money, and please don't tell Mom."</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>The Trick:</h4>
+                            <p>They use panic and secrecy so you send money before thinking.</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>The Defense:</h4>
+                            <p>Hang up and call your grandchild's real number, or ask a question only they would know.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE 7 -->
+                <div class="slide senior-slide">
+                    <h2>&#128373;&#65039; Spot the Scam: Real or Fake?</h2>
+                    <p>Let's practice! You make the call:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>1.</strong> An email says your bank account is suspended and gives you a link to "verify." <em>(Fake - banks don't do this.)</em></li>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>2.</strong> A "tech support" caller says your computer has a virus and asks for access. <em>(Fake - hang up.)</em></li>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>3.</strong> Your grandson texts from his usual number about Sunday dinner. <em>(Real - but if he suddenly asks for money, call him first!)</em></li>
+                    </ul>
+                </div>
+                <!-- SLIDE 8 -->
+                <div class="slide senior-slide">
+                    <h2>&#129440; Malware: Bad Software</h2>
                     <p>Malware = "Malicious Software". Programs designed to spy or steal.</p>
                     <div class="slide-grid">
                         <div class="slide-box bad">
                             <h4>How it gets in:</h4>
-                            <p>• Suspicious email links<br>• "Free" unknown programs</p>
+                            <p>&#8226; Suspicious email links<br>&#8226; "Free" unknown programs</p>
                         </div>
                         <div class="slide-box good">
                             <h4>How to stay safe:</h4>
-                            <p>• Keep computer updated<br>• Use antivirus software</p>
+                            <p>&#8226; Keep computer updated<br>&#8226; Use antivirus software</p>
                         </div>
                     </div>
                 </div>
-                <!-- SLIDE 5 -->
+                <!-- SLIDE 9 -->
                 <div class="slide senior-slide">
-                    <h2>⌨️ Keyloggers: The Tape Recorder</h2>
-                    <p>Imagine a tiny tape recorder hidden inside your keyboard—recording every single letter you type.</p>
+                    <h2>&#9000;&#65039; Keyloggers: A Quick Word</h2>
+                    <p>A keylogger is sneaky software that records what you type, including passwords. It hides in "free" downloads and suspicious email attachments.</p>
+                    <div class="slide-box good">
+                        <h4>The simple defense:</h4>
+                        <p>Don't download unknown programs, keep your computer updated, and use 2FA - a recorded password alone won't get a criminal in.</p>
+                    </div>
+                </div>
+                <!-- SLIDE 10 -->
+                <div class="slide senior-slide">
+                    <h2>&#127384; If You Think You've Been Scammed</h2>
+                    <p>It can happen to anyone - smart people, careful people. There is no shame in it. Act fast:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-1"></i> <strong>Call your bank right away</strong> using the number on the back of your card. They can stop payments and protect your account.</li>
+                        <li><i class="fa-solid fa-2"></i> <strong>Tell a family member or friend.</strong> You don't have to handle it alone, and they can help with the next steps.</li>
+                        <li><i class="fa-solid fa-3"></i> <strong>Report it to the FTC</strong> at ReportFraud.ftc.gov or 1-877-382-4357. Your report protects your neighbors too.</li>
+                    </ul>
+                </div>
+                <!-- SLIDE 11 -->
+                <div class="slide senior-slide">
+                    <h2>&#11088; 3 Rules to Remember</h2>
                     <div class="slide-grid">
-                        <div class="slide-box bad">
-                            <h4>The Risk:</h4>
-                            <p>Secretly records passwords, credit card numbers, and private messages as you type them.</p>
+                        <div class="slide-box good">
+                            <h4>1. Slow down</h4>
+                            <p>Scams run on panic. Real banks and agencies let you take your time.</p>
                         </div>
                         <div class="slide-box good">
-                            <h4>How to Prevent:</h4>
-                            <p>Never download unknown software, use two-factor authentication, and keep antivirus running.</p>
+                            <h4>2. Check first</h4>
+                            <p>Hang up and call back on a number you already trust before doing anything.</p>
                         </div>
                     </div>
+                    <div class="slide-box good" style="margin-top: 20px;">
+                        <h4>3. No gift cards, no remote access</h4>
+                        <p>Anyone who asks for either one is a criminal. Every time.</p>
+                    </div>
                 </div>
-                <!-- SLIDE 6 -->
+                <!-- SLIDE 12 -->
                 <div class="slide senior-slide">
                     <div class="qr-slide-content">
                         <h2>We Value Your Feedback! 📝</h2>
@@ -377,27 +493,28 @@
         <div class="portal">
             <div class="portal-header">
                 <h3>Level Up: Your Online Defense</h3>
-                <span class="slide-counter" id="youth-count">1 / 6</span>
+                <span class="slide-counter" id="youth-count">1 / 11</span>
             </div>
             
             <div class="slide-viewport">
                 <!-- SLIDE 1 -->
                 <div class="slide youth-slide active">
-                    <h2>Level Up Your Safety</h2>
-                    <p class="sub">Essential Survival Guide for the Internet</p>
-                    <p>Whether you're on Roblox, Discord, or YouTube, staying safe is the only way to protect your account and your progress.</p>
+                    <h2>Imagine This &#128561;</h2>
+                    <p class="sub">Level Up: Essential Survival Guide for the Internet</p>
+                    <p>You log into Roblox and everything is gone - your Robux, your limiteds, your whole inventory. Someone stole your account while you were sleeping.</p>
+                    <p>It happens to thousands of players every day. Today you learn the exact moves that keep your account, your info, and your progress safe.</p>
                 </div>
                 <!-- SLIDE 2 -->
                 <div class="slide youth-slide">
-                    <h2>🔐 Pro Password Strategy</h2>
+                    <h2>&#128272; Pro Password Strategy</h2>
                     <p>Hackers use scripts that guess thousands of passwords a second. Don't make it easy.</p>
                     <div class="slide-grid">
                         <div class="slide-box bad">
-                            <h4>❌ NO NO's</h4>
+                            <h4>&#10060; NO NO's</h4>
                             <p>Using your pet's name, your birthday, or "12345".</p>
                         </div>
                         <div class="slide-box good">
-                            <h4>✅ PRO TIP</h4>
+                            <h4>&#9989; PRO TIP</h4>
                             <p>Use random words: <strong>PizzaDragonSkate88</strong></p>
                         </div>
                     </div>
@@ -405,9 +522,9 @@
                 </div>
                 <!-- SLIDE 3 -->
                 <div class="slide youth-slide">
-                    <h2>🎣 The "Free Currency" Scam</h2>
+                    <h2>&#127907; The "Free Currency" Scam</h2>
                     <div class="slide-box bad">
-                        <h4>⚠️ Watch Out For:</h4>
+                        <h4>&#9888;&#65039; Watch Out For:</h4>
                         <p>"Click here for 10,000 FREE ROBUX / V-BUCKS! Just log in to claim!"</p>
                     </div>
                     <ul>
@@ -417,7 +534,51 @@
                 </div>
                 <!-- SLIDE 4 -->
                 <div class="slide youth-slide">
-                    <h2>🦠 The "Free Mod" Trap</h2>
+                    <h2>&#128373;&#65039; Spot the Scam: Real or Fake?</h2>
+                    <p>Quick round - you make the call:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>1.</strong> A DM says "Free 10,000 Robux, just log in on this site!" <em>(Fake - it's a login stealer.)</em></li>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>2.</strong> A "mod menu" download from a random Discord server promises free skins. <em>(Fake - it's malware.)</em></li>
+                        <li><i class="fa-solid fa-circle-question"></i> <strong>3.</strong> Your best friend from school texts you about homework. <em>(Real - but a stranger claiming to be a kid your age? Different story.)</em></li>
+                    </ul>
+                </div>
+                <!-- SLIDE 5 -->
+                <div class="slide youth-slide">
+                    <h2>&#128374;&#65039; Keep Your Real Life Private</h2>
+                    <p>Your profile is not your diary. Strangers can see more than you think.</p>
+                    <div class="slide-grid">
+                        <div class="slide-box bad">
+                            <h4>&#10060; Never share:</h4>
+                            <p>Your real name, school, address, or where you hang out - not in your username, bio, or posts.</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>&#9989; Instead:</h4>
+                            <p>Use a made-up username, keep profiles private, and skip "what school do you go to?" questions.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--accent);"><strong>Sentry Rule:</strong> Online friends know your game tag - not your home address.</p>
+                </div>
+                <!-- SLIDE 6 -->
+                <div class="slide youth-slide">
+                    <h2>&#128100; Strangers in Your DMs</h2>
+                    <p>On Discord and in games, anyone can pretend to be anyone. That "kid your age" might be an adult pretending.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-xmark" style="color: #ff4757;"></i> <strong>Red flags:</strong> asks to move to a private chat, asks for photos, wants secrets from your parents, or offers gifts for "favors."</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: var(--accent);"></i> <strong>Your move:</strong> Don't answer personal questions, block, and tell an adult you trust.</li>
+                    </ul>
+                </div>
+                <!-- SLIDE 7 -->
+                <div class="slide youth-slide">
+                    <h2>&#128587; Tell an Adult - Don't Handle It Alone</h2>
+                    <p>Something feels off? A weird DM, a threat, a scam that actually worked? That's not yours to carry by yourself.</p>
+                    <div class="slide-box good">
+                        <h4>What to do:</h4>
+                        <p>Screenshot it, block the account, and show a parent, teacher, or another adult you trust. You won't be in trouble - asking for help is the pro move.</p>
+                    </div>
+                </div>
+                <!-- SLIDE 8 -->
+                <div class="slide youth-slide">
+                    <h2>&#129440; The "Free Mod" Trap</h2>
                     <p>Malware often hides inside "free hacks" or "game mods" found on YouTube or Discord.</p>
                     <div class="slide-grid">
                         <div class="slide-box bad">
@@ -430,9 +591,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- SLIDE 5 -->
+                <!-- SLIDE 9 -->
                 <div class="slide youth-slide">
-                    <h2>⌨️ Keyboard Watchers</h2>
+                    <h2>&#9000;&#65039; Keyboard Watchers</h2>
                     <p>Keyloggers are a gamer's worst nightmare. They watch every key you press.</p>
                     <div class="slide-grid">
                         <div class="slide-box bad">
@@ -445,7 +606,25 @@
                         </div>
                     </div>
                 </div>
-                <!-- SLIDE 6 -->
+                <!-- SLIDE 10 -->
+                <div class="slide youth-slide">
+                    <h2>&#11088; 3 Rules to Remember</h2>
+                    <div class="slide-grid">
+                        <div class="slide-box good">
+                            <h4>1. Free = fake</h4>
+                            <p>Free Robux, free V-Bucks, free mods - they're bait for your account.</p>
+                        </div>
+                        <div class="slide-box good">
+                            <h4>2. Private stays private</h4>
+                            <p>No real name, school, or location - and your password is yours alone.</p>
+                        </div>
+                    </div>
+                    <div class="slide-box good" style="margin-top: 20px;">
+                        <h4>3. Weird = tell someone</h4>
+                        <p>Anything sketchy goes straight to an adult. You're never in trouble for asking.</p>
+                    </div>
+                </div>
+                <!-- SLIDE 11 -->
                 <div class="slide youth-slide">
                     <div class="qr-slide-content">
                         <h2>Rate This Lesson! ⚡</h2>
@@ -478,10 +657,10 @@
         <div class="glass-card" style="display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 280px;">
                 <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(100, 255, 218, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; border: 1px solid rgba(100, 255, 218, 0.2); margin-bottom: 15px;">
-                    <i class="fa-solid fa-shield-halved"></i> Certified Cybersecurity Practitioner
+                    <i class="fa-solid fa-shield-halved"></i> Cisco Networking Academy: Introduction to Cybersecurity (Completed, Jul 2026)
                 </div>
                 <h3>Cybersecurity Certification</h3>
-                <p style="margin-top: 10px;">Backing CyberSentry’s community advocacy with formal technical training in threat analysis, network defense, and digital safety standards.</p>
+                <p style="margin-top: 10px;">I completed Cisco Networking Academy&#39;s Introduction to Cybersecurity course in July 2026. It covers the basics of threats, network defense, and digital safety that I teach in my talks.</p>
             </div>
             <div>
                 <!-- Replace '#' with your actual certificate link or PDF URL -->
@@ -500,13 +679,13 @@
             <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> cybersentry.initiative@outlook.com
         </a>
         
-        <p style="margin-top: 60px; opacity: 0.4; font-size: 0.9rem;">&copy; 2026 CyberSentry | Student Digital Advocacy Matrix</p>
+        <p style="margin-top: 60px; opacity: 0.4; font-size: 0.9rem;">&copy; 2026 CyberSentry | A student-led community project</p>
     </footer>
 
     <script>
         const deckState = {
-            senior: { current: 0, total: 6, slides: 'senior-slide', counter: 'senior-count' },
-            youth: { current: 0, total: 6, slides: 'youth-slide', counter: 'youth-count' }
+            senior: { current: 0, total: 12, slides: 'senior-slide', counter: 'senior-count' },
+            youth: { current: 0, total: 11, slides: 'youth-slide', counter: 'youth-count' }
         };
 
         function moveSlide(deckKey, direction) {
